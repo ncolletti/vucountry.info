@@ -23,20 +23,15 @@ export default {
     },
     methods: {
         format: region => {
+          window.console.log(region)
             return region.name.toUpperCase();
         },
         random() {
             return this.$store.getters.randomRegion;
         },
-        all() {
-            return this.$store.getters.allRegions;
-        },
-        fetchRegion() {
-            this.region = this.random();
-        }
     },
     created() {
-      this.fetchRegion();
+      this.region = this.$store.getters.selectedRegion;
     }
 };
 </script>

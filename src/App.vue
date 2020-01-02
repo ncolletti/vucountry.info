@@ -9,6 +9,16 @@
       <div class="col-sm-6">
         <RegionDetail/>
       </div>
+      <div class="col-sm-6">
+        <RegionFlag />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div v-for="flag in flags" v-bind:key="flag">
+          <img v-bind:src="flag"/>
+        </div>
+      </div>
     </div>
     <div class="row p-2 justify-content-md-center">
           <div class="search-wrapper justify-content-center">
@@ -33,6 +43,7 @@
 <script>
 import RegionDetail from './components/RegionDetail.vue';
 import RegionItem from './components/RegionItem.vue';
+import RegionFlag from './components/RegionFlag.vue';
 
 import store from './store';
 
@@ -42,11 +53,13 @@ export default {
   components: {
     RegionDetail,
     RegionItem,
+    RegionFlag
   },
   store,
   data: function() {
     return {
-      search: ''
+      search: '',
+      flags: []
     }
   },
   computed: {

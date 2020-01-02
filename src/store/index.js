@@ -9,8 +9,8 @@ const store = new Vuex.Store({
     state: {
         // insert state here
         allRegions: regions.allRegions,
-        selectedRegion: '',
-        search: ''
+        selectedRegion: regions.selectedRegion,
+        search: '',
     },
     getters: {
         allRegions: state => {
@@ -18,7 +18,22 @@ const store = new Vuex.Store({
         },
         randomRegion: state => {
             return state.allRegions[Math.floor(Math.random() * state.allRegions.length)];
+        },
+        selectedRegion: state => {
+            return state.selectedRegion;
+        },
+        selectedFlag: state => {
+            return state.selectedRegion.flag;
         }
+    },
+    actions: {
+        // fetch() {
+        //   // return the Promise via `store.dispatch()` so that we know
+        //   // when the data has been fetched
+        //   return fetchItem(id).then(item => {
+        //     commit('setItem', { id, item })
+        //   })
+        // }
     },
     mutations: {
         setRegion(state, choice) {
