@@ -12,7 +12,7 @@ export default {
       }
     },
     created() {
-      this.flag = this.$store.getters.selectedFlag;
+      this.flag = this.$store.getters.selectedRegion.flag;
     },
 };
 </script>

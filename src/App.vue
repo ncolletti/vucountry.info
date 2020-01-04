@@ -32,7 +32,7 @@
             List of Countries
           </div>
           <ul class="list-group list-group-flush">
-            <RegionItem v-bind:key="region.name" v-for="region in filteredRegions" v-bind:region="region"/>
+            <RegionItem v-bind:key="region.name" v-for="region in regions" v-bind:region="region"/>
           </ul>
         </div>
       </div>
@@ -46,7 +46,6 @@ import RegionItem from './components/RegionItem.vue';
 import RegionFlag from './components/RegionFlag.vue';
 
 import store from './store';
-
 
 export default {
   name: 'app',
@@ -63,11 +62,6 @@ export default {
     }
   },
   computed: {
-    filteredRegions() {
-      return store.state.allRegions.filter(region => {
-          return region.name.toLowerCase().includes(this.search.toLowerCase())
-        })
-    },
     regions() {
       return store.state.allRegions;
     }
@@ -81,7 +75,11 @@ export default {
       //   timestamp: Date.now()
       // });
     }
+  },
+  async beforeCreate() {
+    await this.$store.dispatch('setAllRegions');
   }
+        
 }
 </script>
 

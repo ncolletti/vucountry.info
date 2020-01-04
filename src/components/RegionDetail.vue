@@ -14,6 +14,8 @@
   </div>
 </template>
 <script>
+
+
 export default {
     name: 'RegionDetail',
     data: function () {
@@ -26,12 +28,10 @@ export default {
           window.console.log(region)
             return region.name.toUpperCase();
         },
-        random() {
-            return this.$store.getters.randomRegion;
-        },
+        
     },
     created() {
-      this.region = this.$store.getters.selectedRegion;
+      this.region = this.$store.selectedRegion;
     }
 };
 </script>
