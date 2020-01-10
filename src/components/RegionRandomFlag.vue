@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name: 'RegionFlag',
+    name: 'RegionRandomFlag',
     data: function () {
       return {
         flag: ''

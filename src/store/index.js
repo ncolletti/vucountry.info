@@ -34,6 +34,7 @@ const store = new Vuex.Store({
               store.commit('ALL_REGIONS', result)
               let random = store.state.allRegions[Math.floor(Math.random() * store.state.allRegions.length)];
               store.commit('SET_REGION', random)
+              window.console.log(`${JSON.stringify(random)}`)
             })
         },
         

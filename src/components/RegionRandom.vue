@@ -13,11 +13,10 @@
     </div>
   </div>
 </template>
+
 <script>
-
-
 export default {
-    name: 'RegionDetail',
+    name: 'RegionRandom',
     data: function () {
       return {
         region: ''
