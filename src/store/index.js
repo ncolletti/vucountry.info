@@ -10,7 +10,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: () => ({
-        // insert state here
+        isLoaded: false,
         allRegions: '',
         selectedRegion: '',
         search: '',
@@ -28,25 +28,25 @@ const store = new Vuex.Store({
     },
     actions: {
         async setAllRegions(){
-            console.log('running')
             return axios.get('https://restcountries.eu/rest/v2/all')
             .then(result => {
+              store.commit('DATA_LOADED', true)
               store.commit('ALL_REGIONS', result)
+              let random = store.state.allRegions[Math.floor(Math.random() * store.state.allRegions.length)];
+              store.commit('SET_REGION', random)
             })
         },
         
     },
     mutations: {
         SET_REGION(state, choice) {
-            window.console.log('setting region', choice)
-            state.selectedRegion = choice;
-        },
-        setRegions(state, choice) {
             state.selectedRegion = choice;
         },
         ALL_REGIONS(state, regions) {
-            // Vue.set(state.allRegions, regions.data);
             state.allRegions = regions.data;
+        },
+        DATA_LOADED(state, status) {
+            state.isLoaded = status;
         }
     }
     

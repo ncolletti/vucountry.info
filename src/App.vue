@@ -5,7 +5,12 @@
         <h1>Dashboard</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="text-center" v-if="isLoading">
+      <div class="spinner-border text-warning" role="status" style="width: 6rem; height: 6rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="row" v-if="!isLoading">
       <div class="col-sm-6">
         <RegionDetail/>
       </div>
@@ -64,6 +69,9 @@ export default {
   computed: {
     regions() {
       return store.state.allRegions;
+    },
+    isLoading: function() {
+      return !this.$store.state.isLoaded
     }
   },
   methods: {
@@ -92,5 +100,10 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  .load-geo {
+     width: 100px;
+    height: 100px;
+    margin: 0 auto;
   }
 </style>

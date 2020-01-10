@@ -25,13 +25,12 @@ export default {
     },
     methods: {
         format: region => {
-          window.console.log(region)
             return region.name.toUpperCase();
         },
         
     },
     created() {
-      this.region = this.$store.selectedRegion;
-    }
+      this.region = this.$store.getters.selectedRegion;
+    },
 };
 </script>
