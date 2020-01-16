@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ncolletti/vucountry.info) 
+
 # vucountry.info
 A simple webapp to track travel information about countries you're interested in.
 
