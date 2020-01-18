@@ -26,10 +26,10 @@ export default {
         format: region => {
             return region.name.toUpperCase();
         },
-        
+
     },
     created() {
-      this.region = this.$store.getters.selectedRegion;
+      this.region = this.$store.getters.highlightedRegion;
     },
 };
 </script>

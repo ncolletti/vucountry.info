@@ -15,7 +15,7 @@
         <RegionRandom/>
       </div>
       <div class="col-sm-6">
-        <RegionRandomFlag />
+        <RegionRandomFlag/>
       </div>
     </div>
     <div class="row">
@@ -99,7 +99,7 @@ export default {
   async beforeCreate() {
     await this.$store.dispatch('setAllRegions');
   }
-        
+
 }
 </script>
 

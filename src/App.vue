@@ -4,15 +4,30 @@
       <Navbar/>
     </div>
     <router-view/>
+    <div class="footer">
+      <!-- <Footer/> -->
+    </div>
   </div>
+
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+// import Footer from '@/components/Footer.vue';
+
+import store from '@/store';
+
 export default {
     name: 'app',
     components: {
       Navbar,
+      // Footer
+    },
+    store,
+    beforeCreate() {
+      if(window.localStorage && window.localStorage.vucountryinfo) {
+          this.$store.commit('PREFETCH_REGIONS', JSON.parse(window.localStorage.getItem('vucountryinfo')));
+      }
     },
 }
 </script>

@@ -1,14 +1,18 @@
 # vucountry.info
 A simple webapp to track travel information about countries you're interested in.
 
-## Docker setup
+
+## TODO
+Modify button so that it knows if the region is saved or not yet.
+
+
+### Docker setup
 ```
 docker build -t vucountry.info .
 docker run -p 3030:3000 vucountry.info
 ```
 
-
-## Project setup
+### Project setup
 ```
 npm install
 ```
